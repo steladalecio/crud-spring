@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor 
 @NoArgsConstructor 
 @Entity 
-public class Student {
+public class Teacher {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
