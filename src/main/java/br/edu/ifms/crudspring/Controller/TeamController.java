@@ -1,4 +1,4 @@
-package br.edu.ifms.crudspring.controller;
+package br.edu.ifms.crudspring.Controller;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.ifms.crudspring.model.Team;
-import br.edu.ifms.crudspring.service.TeamService;
+import br.edu.ifms.crudspring.Service.TeamService;
 
 @Controller 
 @RequestMapping("/team") 
