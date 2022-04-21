@@ -1,101 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Cadastrar Aluno</title>
+    <title>Tela Inicial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" th:src="@{/main.js}"></script>
-    <link rel="stylesheet" href="../style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-    <div id="wrapper">
-        <div class="overlay"></div>
-        <!-- DEIXA O MENUZINHO SUSPENSO -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Crud Spring
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/}">Home</a>
-                </li>
-                <li>
-                    <a th:href="@{/student/list}">Listar Estudante</a>
-                </li>
-                <li>
-                    <a th:href="@{/teacher/list}">Listar Professor</a>
-                </li>
-                <li>
-                    <a th:href="@{/student/registration}">Cadastrar Estudante</a>
-                </li>
-                <li>
-                    <a th:href="@{/teacher/registration}">Cadastrar Professor</a>
-                </li>
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar" class="active">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            <div class="p-4">
+                <h1><a class="logo">Crud Spring</a></h1>
+                <ul class="list-unstyled components mb-5">
+                    <li class="active">
+                        <a th:href="@{/}"><span class="fa fa-home mr-3"></span> Home</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/student/list}"><span class="fa fa-user mr-3"></span> Listar Estudantes</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/teacher/list}"><span class="fa fa-user mr-3"></span> Listar Professor</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/team/list}"><span class="fa fa-user mr-3"></span> Listar Turmas</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/student/registration}"><span class="fa fa-cogs mr-3"></span> Cadastrar
+                            Estudante</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/teacher/registration}"><span class="fa fa-cogs mr-3"></span> Cadastrar Professor
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/team/cadastrar}"><span class="fa fa-cogs mr-3"></span> Cadastrar Turma</a>
+                    </li>
+                </ul>
 
-            </ul>
+                <div class="footer">
+                    <p>
+                        Desenvolvedora: Stela Dalecio
+                    </p>
+                </div>
+
+            </div>
         </nav>
-        <!-- /FINALIZA O MENUZINHO SUSPENSO -->
 
-        <!-- INCIO DA PAGINA -->
-        <div id="page-content-wrapper">
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-                <span class="hamb-middle"></span>
-                <span class="hamb-bottom"></span>
-            </button>
-            <div class="container">
+        <!-- Pagina  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+            <div class="container mt-4">
                 <div class="row">
-                    <!-- CORPINHO DA PAGINA -->
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 container justify-content-center border">
-                            <h2>Cadastro de Aluno</h2>
-                            <form th:action="@{/student/list}" th:object="${student}" method="post">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="name">Nome</label>
-                                        <input th:field="*{name}" type="text" class="form-control" id="name" placeholder="Informe o nome" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="surname">E-mail</label>
-                                        <input th:field="*{email}" type="text" class="form-control" id="email" placeholder="Informe o e-mail" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password">Senha</label>
-                                        <input th:field="*{password}" type="password" class="form-control" id="password" placeholder="Digite a sua senha" />
-                                    </div>
+                    <div class="col-md-6 col-sm-6 container justify-content-center border">
+                        <h2 style="text-align: center;">Cadastro de Aluno</h2>
+                        <form th:action="@{/student/list}" th:object="${student}" method="post">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nome</label>
+                                    <input th:field="*{name}" type="text" class="form-control" id="name" placeholder="Informe o nome" required />
                                 </div>
-                                <button type="submit" class="btn btn-success mt-3 mb-3">
-                                    Cadastrar
-                                </button>
-                            </form>
-
-                        </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input th:field="*{email}" type="email" class="form-control" id="email" placeholder="Informe o e-mail" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Senha</label>
+                                    <input th:field="*{password}" type="password" class="form-control" id="password" placeholder="Digite a sua senha" required />
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-success mt-3 mb-3">Cadastrar</button>
+                            </div>
+                        </form>
                     </div>
-                    <!-- FINAL DO CORPINHO -->
                 </div>
             </div>
         </div>
-        <!-- FIM DA PAGINA -->
     </div>
-
-
-
-    <footer class="bg-dark text-center text-lg-start fixed-bottom">
-        <div class="text-center p-3">
-            <p class="text-light bg-dark">Desenvolvedora: Stela Dalecio</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
 </body>
 
 </html>

@@ -18,17 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.edu.ifms.crudspring.Service.TeacherService;
 import br.edu.ifms.crudspring.model.Teacher;
 
-@Controller 
+@Controller
 
-@RequestMapping("/teacher") 
+@RequestMapping("/teacher")
 
 public class TeacherController {
 
     @Autowired
     TeacherService teacherService;
 
-
-    //  método Listar
+    // método Listar
 
     @PostMapping("/list")
     public String saves(@ModelAttribute("teacher") Teacher teacher) {
@@ -49,10 +48,10 @@ public class TeacherController {
     @GetMapping("/registration")
     public String Registration(Model model) {
         model.addAttribute("teacher", new Teacher());
-        return "Professor_Cadastrado";
+        return "Professor_Cadastro";
     }
-    
-    //  método Deletar
+
+    // método Deletar
 
     @GetMapping("/remove/{id}")
     public String removeTeacher(@PathVariable("id") UUID id) {
@@ -72,5 +71,5 @@ public class TeacherController {
 
         return "redirect:/teacher/list";
     }
-   
+
 }

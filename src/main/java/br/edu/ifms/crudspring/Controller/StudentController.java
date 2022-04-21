@@ -18,9 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.edu.ifms.crudspring.Service.StudentService;
 import br.edu.ifms.crudspring.model.Student;
 
-
-@Controller 
-@RequestMapping("/student") 
+@Controller
+@RequestMapping("/student")
 
 public class StudentController {
 
@@ -32,7 +31,6 @@ public class StudentController {
         studentService.save(student);
         return "redirect:/student/list";
     }
-    
 
     @GetMapping("/list")
     public String locall(@Valid Student student, Model model) {
@@ -41,7 +39,6 @@ public class StudentController {
         model.addAttribute("studentUpdate", new Student());
         return "list";
     }
-    
 
     @GetMapping("/registration")
     public String registration(Model model) {
@@ -67,6 +64,5 @@ public class StudentController {
 
         return "redirect:/student/list";
     }
-    
 
 }

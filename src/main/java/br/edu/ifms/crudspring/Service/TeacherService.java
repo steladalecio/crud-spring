@@ -11,7 +11,7 @@ import br.edu.ifms.crudspring.repository.TeacherRepository;
 
 @Service
 public class TeacherService {
-    
+
     @Autowired
     TeacherRepository teacherRepository;
 

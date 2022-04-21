@@ -66,12 +66,24 @@
 
         <!-- Pagina  -->
         <div id="content" class="p-4 p-md-5 pt-5">
-            <h2 class="mb-4">Crud Spring</h2>
-            <p>Estudante: Stela Dalecio</p>
-            <p>Unidade Curricular: Desenvolvimento Baseado em Frameworks I </p>
-            <p>Professor: JOSÉ ROBERTO CAMPOS </p>
-            <p>Curso: Tecnologia em Análise e Desenvolvimento de Sistemas 5 </p>
-            <p>Campus Três Lagoas</p>
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 container justify-content-center border">
+                        <h2 style="text-align: center;">Cadastro de Turma</h2>
+                        <form th:action="@{/team/listar}" th:object="${team}" method="post">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Turma</label>
+                                    <input th:field="*{name}" type="text" class="form-control" id="name" placeholder="Informe o nome da Turma" required />
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-success mt-3 mb-3">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" th:src="@{/js/main.js}"></script>

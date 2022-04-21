@@ -18,10 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.edu.ifms.crudspring.model.Team;
 import br.edu.ifms.crudspring.Service.TeamService;
 
-@Controller 
-@RequestMapping("/team") 
+@Controller
+@RequestMapping("/team")
 public class TeamController {
-    
+
     @Autowired
     TeamService teamService;
 
@@ -38,14 +38,12 @@ public class TeamController {
         model.addAttribute("teamUpdate", new Team());
         return "listTeam";
     }
-    
 
     @GetMapping("/cadastrar")
     public String Cadastrar(Model model) {
         model.addAttribute("team", new Team());
         return "cadTeam";
     }
-    
 
     @GetMapping("/remove/{id}")
     public String removeTeam(@PathVariable("id") UUID id) {
@@ -53,7 +51,6 @@ public class TeamController {
         return "redirect:/team/listar";
     }
 
-    
     @PostMapping("/update/{id}")
     public String updateTeam(@PathVariable("id") UUID id, @Valid Team team, BindingResult result,
             Model model) {
@@ -66,7 +63,5 @@ public class TeamController {
 
         return "redirect:/team/listar";
     }
-    
 
 }
-

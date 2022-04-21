@@ -13,6 +13,7 @@ public class CrudSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CrudSpringApplication.class, args);
 	}
+
 	@GetMapping("/")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("telaInicial");

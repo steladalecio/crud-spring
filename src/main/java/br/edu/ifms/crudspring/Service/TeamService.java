@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ifms.crudspring.model.Team;
 import br.edu.ifms.crudspring.repository.TeamRepository;
+
 @Service
 public class TeamService {
 
     @Autowired
     TeamRepository teamRepository;
 
-    public List<Team> getTeams
-() {
+    public List<Team> getTeams() {
         return this.teamRepository.findAll();
     }
 
