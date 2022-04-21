@@ -49,7 +49,7 @@ public class TeacherController {
     @GetMapping("/registration")
     public String Registration(Model model) {
         model.addAttribute("teacher", new Teacher());
-        return "Professor Cadastrado";
+        return "Professor_Cadastrado";
     }
     
     //  método Deletar
@@ -57,7 +57,7 @@ public class TeacherController {
     @GetMapping("/remove/{id}")
     public String removeTeacher(@PathVariable("id") UUID id) {
         teacherService.delete(id);
-        return "redirect:/teacher/listar";
+        return "redirect:/teacher/list";
     }
 
     @PostMapping("/update/{id}")
@@ -70,7 +70,7 @@ public class TeacherController {
 
         this.teacherService.save(teacher);
 
-        return "redirect:/teacher/listar";
+        return "redirect:/teacher/list";
     }
    
 }

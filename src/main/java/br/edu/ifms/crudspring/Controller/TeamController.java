@@ -64,7 +64,7 @@ public class TeamController {
 
         this.teamService.save(team);
 
-        return "redirect:/team/list";
+        return "redirect:/team/listar";
     }
     
 
